@@ -1,0 +1,6 @@
+vendor/
+build/
+.phpunit.cache/
+.phpcs-cache
+.DS_Store
+AGENTS.md

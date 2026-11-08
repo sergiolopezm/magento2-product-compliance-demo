@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section
+            id="product_compliance"
+            translate="label"
+            sortOrder="250"
+            showInDefault="1"
+            showInWebsite="0"
+            showInStore="0">
+            <label>Product Compliance</label>
+            <tab>catalog</tab>
+            <resource>Selopez_ProductCompliance::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="mode" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Enforcement mode</label>
+                    <source_model>Selopez\ProductCompliance\Model\Config\Source\Mode</source_model>
+                </field>
+                <field
+                    id="warranty_category_ids"
+                    translate="label comment"
+                    type="text"
+                    sortOrder="30"
+                    showInDefault="1">
+                    <label>Categories requiring warranty</label>
+                    <comment>Comma-separated category IDs. Applies to direct assignments only.</comment>
+                </field>
+                <field id="warranty_min_months" translate="label" type="text" sortOrder="40" showInDefault="1">
+                    <label>Minimum warranty months</label>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+                <field id="warranty_max_months" translate="label" type="text" sortOrder="50" showInDefault="1">
+                    <label>Maximum warranty months</label>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

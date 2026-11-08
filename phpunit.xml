@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         bootstrap="Test/bootstrap.php" colors="true" cacheDirectory=".phpunit.cache"
+         failOnWarning="true" failOnRisky="true">
+    <testsuites>
+        <testsuite name="Product Compliance"><directory>Test/Unit</directory></testsuite>
+    </testsuites>
+    <source><include><directory suffix=".php">src/Model</directory><directory suffix=".php">src/Plugin</directory><directory suffix=".php">src/Observer</directory></include></source>
+    <coverage includeUncoveredFiles="true"/>
+</phpunit>

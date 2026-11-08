@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference
+        for="Selopez\ProductCompliance\Api\ComplianceCheckerInterface"
+        type="Selopez\ProductCompliance\Model\ComplianceChecker"/>
+    <preference
+        for="Selopez\ProductCompliance\Api\Data\ComplianceResultInterface"
+        type="Selopez\ProductCompliance\Model\ComplianceResult"/>
+    <preference
+        for="Selopez\ProductCompliance\Api\Data\ViolationInterface"
+        type="Selopez\ProductCompliance\Model\Violation"/>
+    <type name="Selopez\ProductCompliance\Model\ComplianceChecker">
+        <arguments>
+            <argument name="rules" xsi:type="array">
+                <item name="gtin" xsi:type="object">Selopez\ProductCompliance\Model\Validator\GtinValidator</item>
+                <item
+                    name="warranty"
+                    xsi:type="object">Selopez\ProductCompliance\Model\Validator\WarrantyValidator</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Api\ProductRepositoryInterface">
+        <plugin name="selopez_product_compliance" type="Selopez\ProductCompliance\Plugin\ValidateBeforeProductSave"/>
+    </type>
+</config>
